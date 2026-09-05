@@ -1,25 +1,13 @@
-import { useState } from "react"
 import type { ProductType } from "../Type"
-
-import './Product.css'
-
-export type ProductProps = {
-    product: ProductType,
-    handleCartUpdate:(product:ProductType)=>void
+// import './BestSell.css'
+export type BestSellProps = {
+    product: ProductType
 }
 
-export default function Product({ product,handleCartUpdate }: ProductProps) {
-    const [addCart, setAddCart]= useState(false);
-
-    const handleAddCart = ()=>{
-
-      setAddCart(!addCart)
-      handleCartUpdate(product)
-    }
-
+export default function BestSell({ product }: BestSellProps) {
+    
     return (
- 
-   
+       
      <div className="product-card">
       <div className="product-image-container">
         <img
@@ -53,13 +41,10 @@ export default function Product({ product,handleCartUpdate }: ProductProps) {
           </div>
         </div>
 
-        <button onClick={handleAddCart}  className="cart-button">
-         {addCart? "Added": "Add to Cart"}
+        <button className="cart-button">
+          Add to Cart
         </button>
       </div>
     </div>
- 
-
-
     )
 }
